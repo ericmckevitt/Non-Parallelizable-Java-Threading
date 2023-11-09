@@ -1,6 +1,11 @@
 import java.util.concurrent.*;
 
 public class SharingData {
+
+    /*
+    * This implementation is not thread-safe because the increment operation is not atomic.
+    * Running this program will result in a different value for counter each time, always < 20_000_000.
+     */
     public volatile static int counter = 0;
     public static void increment(String name) {
         System.out.printf("%s: begin\n", name);
